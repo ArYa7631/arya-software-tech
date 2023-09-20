@@ -64,7 +64,9 @@ const DynamicForm = ({ onSubmit, formData, formSchema,formDefaultValues }: Dynam
                             {formType == COMBOBOX && <DynamicCombobox {...formProps} comboboxData={item.comboboxData} onSelectHandler={comboboxSelectHandler} />}
                         </div>
                     )})}
-                    <Button type="submit">Submit</Button>
+                    <div className="flex justify-end">
+                        <Button type="submit">Submit</Button>
+                    </div>
                 </form>
             </Form>
         </div>

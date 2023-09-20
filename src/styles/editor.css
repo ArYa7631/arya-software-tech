@@ -1,0 +1,70 @@
+
+/* Apply base layer styles */
+.dark .ce-block--selected .ce-block__content,
+.dark .ce-inline-toolbar,
+.dark .codex-editor--narrow .ce-toolbox,
+.dark .ce-conversion-toolbar,
+.dark .ce-settings,
+.dark .ce-settings__button,
+.dark .ce-toolbar__settings-btn,
+.dark .cdx-button,
+.dark .ce-popover,
+.dark .ce-toolbar__plus:hover {
+  background: var(--popover);
+  color: inherit;
+  border-color: var(--border);
+}
+
+/* Apply secondary layer styles */
+.dark .ce-inline-tool,
+.dark .ce-conversion-toolbar__label,
+.dark .ce-toolbox__button,
+.dark .cdx-settings-button,
+.dark .ce-toolbar__plus {
+  color: inherit;
+}
+
+/* Apply tertiary layer styles */
+.dark .ce-popover__item-icon,
+.dark .ce-conversion-tool__icon {
+  background-color: var(--muted);
+  box-shadow: none;
+}
+
+/* Apply special styles */
+.dark .cdx-search-field {
+  border-color: var(--border);
+  background: var(--input);
+  color: inherit;
+}
+
+/* Apply selection style */
+.dark ::selection {
+  background: var(--accent);
+}
+
+/* Apply hover styles */
+.dark .cdx-settings-button:hover,
+.dark .ce-settings__button:hover,
+.dark .ce-toolbox__button--active,
+.dark .ce-toolbox__button:hover,
+.dark .cdx-button:hover,
+.dark .ce-inline-toolbar__dropdown:hover,
+.dark .ce-inline-tool:hover,
+.dark .ce-popover__item:hover,
+.dark .ce-conversion-tool:hover,
+.dark .ce-toolbar__settings-btn:hover {
+  background-color: var(--accent);
+  color: var(--accent-foreground);
+}
+
+/* Apply error notification style */
+.dark .cdx-notify--error {
+  background: var(--destructive) !important;
+}
+
+/* Apply error notification icon style */
+.dark .cdx-notify__cross::after,
+.dark .cdx-notify__cross::before {
+  background: white;
+}

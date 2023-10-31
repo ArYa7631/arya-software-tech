@@ -1,5 +1,5 @@
 import { AxiosResponse } from 'axios';
-import { makeApiRequest, RequestMethod } from '../pages/api/apiHelpers';
+import { ApiRequestMethod, makeApiRequest } from '../helpers/api/apiHelpers';
 const baseUrl = 'https://dummyjson.com';
 
 interface Todo {
@@ -10,7 +10,7 @@ interface Todo {
 
 const fetchTodos = async (): Promise<AxiosResponse<Todo[]>> => {
     return makeApiRequest<Todo[]>(baseUrl, {
-        method: RequestMethod.GET,
+        method: ApiRequestMethod.GET,
         url: 'products',
     });
 };

@@ -1,14 +1,14 @@
 import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 
-export enum RequestMethod {
-  GET = 'get',
-  POST = 'post',
-  PUT = 'put',
-  DELETE = 'delete',
+export enum ApiRequestMethod {
+  GET = 'GET',
+  POST = 'POST',
+  PUT = 'PUT',
+  DELETE = 'DELETE',
 }
 
 export interface ApiRequestOptions<Data = any> {
-  method: RequestMethod;
+  method: ApiRequestMethod;
   url: string;
   data?: Data;
   config?: AxiosRequestConfig;

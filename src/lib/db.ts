@@ -1,18 +1,26 @@
-import { PrismaClient } from "@prisma/client"
+import { PrismaClient } from "@prisma/client";
 
 declare global {
-  // eslint-disable-next-line no-var
-  var cachedPrisma: PrismaClient
+  var cachedPrisma: PrismaClient | undefined;
 }
 
-let prisma: PrismaClient
+let prisma: PrismaClient;
+
 if (process.env.NODE_ENV === "production") {
-  prisma = new PrismaClient()
+  prisma = new PrismaClient();
 } else {
   if (!global.cachedPrisma) {
-    global.cachedPrisma = new PrismaClient()
+    global.cachedPrisma = new PrismaClient();
   }
-  prisma = global.cachedPrisma
+  prisma = global.cachedPrisma;
 }
 
-export const db = prisma
+export const db = prisma;
+
+// Function to disconnect Prisma
+export const disconnect = async () => {
+  if (global.cachedPrisma) {
+    await global.cachedPrisma.$disconnect();
+    console.log("Prisma is disconnected!");
+  }
+};

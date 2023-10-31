@@ -1,6 +1,7 @@
 import * as z from "zod"
 export enum DYNAMIC_TYPE {
     INPUT = "INPUT",
+    PHONE_INPUT = "PHONE_INPUT",
     CHECKBOX = "CHECKBOX",
     CALENDAR = "CALENDAR",
     RADIO_GROUP = "RADIO_GROUP",

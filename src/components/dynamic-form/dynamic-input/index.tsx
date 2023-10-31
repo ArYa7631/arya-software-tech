@@ -8,6 +8,7 @@ interface DynamicInputProps {
     formField: {
         name: string,
         label: string,
+        type?: string,
         placeholder?: string,
         formDescription?: string,
         formType: string
@@ -22,7 +23,7 @@ const DynamicInput = ({ control, formField }: DynamicInputProps) => {
                 <FormItem>
                     <FormLabel>{formField.label}</FormLabel>
                     <FormControl>
-                        <Input placeholder={formField.placeholder} {...field} />
+                        <Input placeholder={formField.placeholder} type={formField.type} {...field} />
                     </FormControl>
                     {formField.formDescription && (
                         <FormDescription>

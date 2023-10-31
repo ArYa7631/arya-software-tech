@@ -19,10 +19,11 @@ import { AxiosResponse } from 'axios';
 import { fetchMarketplaceConfiguration } from '@/services/marketplaceService';
 import SectionWrapper from '@/components/section-wrapper';
 import { CustomEditor } from '@/components/custom-editor';
-import { galleryImages, iconData, imageData, imgDescriptionData, imgDescriptionData2, infoImgData, jumbotronData } from '@/constants/dummyData';
+import { dummy_editor_data, galleryImages, iconData, imageData, imgDescriptionData, imgDescriptionData2, infoImgData, jumbotronData } from '@/constants/dummyData';
 import InfoImg from '@/components/section/info-img';
 import { GLOBAL_BG_COLOR } from '@/constants/colorConstant';
 import ImgDescription from '@/components/section/img-description';
+
 const inter = Inter({ subsets: ['latin'] })
 // test.js
 interface User {
@@ -39,10 +40,34 @@ export default function Home({ usersData }: HomeProps) {
   const { toast } = useToast();
   const [users, setUsers] = useState<User[]>([]);
   const { locale, locales, defaultLocale } = useRouter();
-  const { data, error, isLoading } = useQuery<AxiosResponse<any>, Error>(['todos'], fetchMarketplaceConfiguration);
+  // const { data, error, isLoading } = useQuery<AxiosResponse<any>, Error>(['todos'], fetchMarketplaceConfiguration);
 
   console.log(locale, locales, defaultLocale);
   const videoUrl = 'https://www.youtube.com/embed/asw-wTDzGUQ';
+
+  const dummyData = {
+    version: "2.28.0",
+    time: 1693036088893,
+    blocks: [
+      {
+        type: 'header',
+        data: {
+          text: 'Editor.js with Dummy Data',
+          level: 2,
+        },
+      },
+      {
+        type: 'paragraph',
+        data: {
+          text: 'This is some dummy content.',
+        },
+      },
+    ],
+  };
+
+  const editorSubmitHandler=()=>{
+
+  }
   return (
 
     <main>
@@ -56,7 +81,7 @@ export default function Home({ usersData }: HomeProps) {
         <ImgDescription {...imgDescriptionData2}/>
         {/* <VideoGallery />
         <Video videoUrl={videoUrl} /> */}
-        {/* <CustomEditor /> */}
+        <CustomEditor onSubmit={editorSubmitHandler} readOnly={true} editorData={dummy_editor_data}/>
       </SectionWrapper>
       <Toaster />
     </main>

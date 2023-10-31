@@ -47,6 +47,7 @@ export const profileLIinkData = [
   },
   {
     name: "Sign out",
+    id: "logout",
     active: false,
     href: "#"
   },
@@ -181,3 +182,42 @@ export const imageData = [
     legend: "This is image three"
   },
 ];
+
+
+export const dummy_editor_data = {
+    time: 1635851479569,
+    blocks: [
+      { id: "YWMraElphC", type: "paragraph", data: { text: "<b>Hello</b>" } },
+      {
+        id: "EAniKmugQq",
+        type: "paragraph",
+        data: { text: '<i><code class="inline-code">npm init</code></i>' }
+      },
+      {
+        id: "Diw_9mPof3",
+        type: "simpleImage",
+        data: {
+          url:
+            "https://cdn4.buysellads.net/uu/1/93750/1628773830-carbon-ads-2021-08_2x.png",
+          caption: "Hey",
+          withBorder: false,
+          withBackground: true,
+          stretched: false
+        }
+      },
+      {
+        id: "TSb458m5kU",
+        type: "table",
+        data: {
+          withHeadings: false,
+          content: [
+            ["<b>Name</b>", "<b>Age</b>"],
+            ["Ikbel", "29"],
+            ["Mimi", "30"]
+          ]
+        }
+      },
+      { id: "l9POcr6KjI", type: "paragraph", data: { text: "Alright" } }
+    ],
+    version: "2.28.0"
+  };

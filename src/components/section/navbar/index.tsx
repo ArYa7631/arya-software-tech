@@ -12,10 +12,22 @@ import { NavLinkData, profileLIinkData } from "@/constants/dummyData";
 import UserProfile from "./user-profile";
 import SignInForm from "./SignInForm";
 import SignUpForm from "./SignUpForm";
+import { userService } from "@/services/userService";
 
 const Navbar = () => {
     const [isLogin,setIsLogin] = useState(false);
+    const [user,setUser] = useState([]);
 
+    useEffect(() => {
+        const subscription = userService.userObservable.subscribe(x =>{ 
+            setIsLogin(!!x);
+            setUser(x);
+        });
+        return () => subscription.unsubscribe();
+    }, []);
+
+    console.log('user=========',user);
+    
     const activeLinkCss = "block py-2 pl-3 pr-4 text-white rounded md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
     const nonActiveCss = "block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
 
@@ -27,7 +39,7 @@ const Navbar = () => {
                         <img src="/images/arya_software_tech.png" className="h-8 mr-3" alt="Flowbite Logo" />
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white" style={{color: NAVBAR_IDENT_COLOR}}>AryaSoftwareTech</span>
                     </a>
-                    <div className="flex items-center md:order-2">
+                    <div className="flex items-center md:order-2 gap-3">
 
                         {isLogin && <UserProfile profileLinkData= {profileLIinkData} />}
                         {!isLogin && <SignInForm />}

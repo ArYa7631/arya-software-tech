@@ -15,11 +15,6 @@
     export default CheckList;
   }
   
-  declare module "@bomdi/codebox" {
-    const CodeBox: any;
-    export default CodeBox;
-  }
-  
   declare module "@editorjs/delimiter" {
     const Delimiter: any;
     export default Delimiter;
@@ -70,3 +65,4 @@
     export default InlineCode;
   }
   
+  declare module '@editorjs/paragraph';
